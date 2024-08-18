@@ -41,14 +41,7 @@ ShaderProgram::ShaderProgram(const char* vertexFile, const char* fragmentFile) {
 	glDeleteShader(fragmentShader);
 }
 
-
-
-ShaderProgram::~ShaderProgram() {
-	this->Delete();
-	delete this;
-}
-
-GLuint ShaderProgram::GetID() {
+const GLuint ShaderProgram::GetID() {
 	return ID;
 }
 
@@ -58,4 +51,8 @@ void ShaderProgram::Use() {
 
 void ShaderProgram::Delete() {
 	glDeleteProgram(ID);
+}
+
+ShaderProgram::~ShaderProgram() {
+	Delete();
 }
